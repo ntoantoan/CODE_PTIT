@@ -9,11 +9,23 @@ int main()
     {
         string s;
         getline(cin,s);
-        stack<char> st;
-        for(int i=0;i<s.size();i++)
+        string word;
+        stack<string> st;
+        for(int i=0;i<=s.size();i++)
         {
-            cout<<s[i]<<" ";
+            if(s[i]==' ' or i == s.size())
+            {
+                st.push(word);
+                word = "";
+            }
+            else
+                word+=s[i];
         }
-
+        while(!st.empty())
+        {
+            cout<<st.top()<<" ";
+            st.pop();
+        }
+        cout<<endl;
     }
 }
